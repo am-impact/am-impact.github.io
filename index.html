@@ -4,29 +4,45 @@
         <meta charset="utf-8">
         <title>a&amp;m impact</title>
         <meta name="description" content="a&amp;m impact repositories">
-        <link rel="stylesheet" href="compiled/all.css">
+        <link rel="stylesheet" href="content/compiled/all.css">
     </head>
     <body>
-        <div class="row">
-            <div class="columns medium-4">
-                <div class="panel">
-                    <img src="img/logo.png" alt="">
-                    <p class="stats">
-                        <a href="https://github.com/am-impact/repositories"><b id="num-repos">View</b> public repos</a>
-                        <br>
-                        <a href="https://github.com/am-impact?tab=members"><b id="num-members">View</b> members</a>
-                    </p>
-                    <h3>Recently updated</h3>
-                    <ol id="updated-repos"></ol>
+        <header class="page-header">
+            <div class="row">
+                <div class="columns">
+                    <div class="panel">
+                        <div class="row">
+                            <div class="columns medium-4"><img src="content/img/logo.png" alt=""></div>
+                            <div class="columns medium-4">
+                                <h4>Stats</h4>
+                                <div class="stats">
+                                    <a href="https://github.com/am-impact/repositories"><b id="num-repos">View</b> public repos</a>
+                                    <br>
+                                    <a href="https://github.com/am-impact?tab=members"><b id="num-members">View</b> members</a>
+                                </div>
+                            </div>
+                            <div class="columns medium-4">
+                                <h4>Recently updated</h4>
+                                <ol id="updated-repos"></ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <div class="row">
+                <div class="columns">
+                    <ul class="medium-block-grid-3" id="repos"></ul>
                 </div>
             </div>
 
-            <div class="site-content" id="repos"></div>
-        </div>
-        <footer class="site-footer">
+        </main>
 
-        </footer>
+        <footer class="page-footer"></footer>
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script src="scripts/repos.js"></script>
-</body>
+    </body>
 </html>

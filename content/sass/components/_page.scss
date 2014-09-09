@@ -1,0 +1,16 @@
+.page {
+    &-header {
+        margin: 1em 0;
+
+        h4 {
+            margin: 0 0 5px 0;
+        }
+    }
+
+    &-main { margin: 1em 0; }
+    &-footer { margin: 1em 0; }
+}
+
+.site-content {
+    float: left;
+}

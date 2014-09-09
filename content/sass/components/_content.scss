@@ -1,0 +1,16 @@
+.c-entry {
+    a:visited { color: lighten(color(text),5%); }
+    img {
+		max-width: 100%;
+		height: auto !important;
+	}
+
+    @media #{$small-only}
+    {
+        table {
+            display: block;
+            max-width: 100%;
+            width: auto !important;
+        }
+    }
+}

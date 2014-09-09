@@ -1,0 +1,18 @@
+a {
+    color: color(primary);
+    &:hover { color: color(secondary); }
+}
+
+
+//
+// Touch-devices maken standaard een link van telefoonnummers
+//
+a[href^="tel:"] {
+    text-decoration: none !important;
+    color: inherit !important;
+    cursor: text;
+
+    &:hover {
+        text-decoration: none !important;
+    }
+}

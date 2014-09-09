@@ -1,0 +1,73 @@
+//
+// Display inline
+//
+@mixin inline( $align: top ) {
+    display: inline-block;
+    vertical-align: $align;
+
+    .lt-ie8 & {
+        display: inline;
+        zoom: 1;
+    }
+}
+
+
+//
+// Retina sprites
+//
+@mixin use-sprite($sprite, $retina: false, $hover: false) {
+    background: {
+        image: sprite-url($icons);
+        position: sprite-position($icons, $sprite);
+        repeat: no-repeat;
+    }
+
+    @if ( $hover ) {
+        &:hover {
+            background-position: sprite-position($icons, #{$sprite}_hover);
+        }
+    }
+
+    @if ( $retina ) {
+        @media  ( -webkit-min-device-pixel-ratio: 2 ),
+                ( -o-min-device-pixel-ratio: 3/2 ),
+                ( min-device-pixel-ratio: 2 ) {
+            height: image-height(sprite-file($icons2x, $sprite)) / 2;
+            width: image-width(sprite-file($icons2x, $sprite)) / 2;
+            background: {
+                image: sprite-url($icons2x);
+                position: round(nth(sprite-position($icons2x, $sprite), 1) / 2) round(nth(sprite-position($icons2x, $sprite), 2) / 2);
+                size: (image-width(sprite-path($icons2x)) / 2) (image-height(sprite-path($icons2x)) / 2);
+            }
+
+            @if ( $hover ) {
+                &:hover {
+                    background-position: round(nth(sprite-position($icons2x, $sprite), 1) / 2) round(nth(sprite-position($icons2x, $sprite), 2) / 2);
+                }
+            }
+        }
+    }
+}
+
+
+//
+// Foundation mixins
+//
+$modules: () !default;
+@mixin exports($name) {
+    @if ( index($modules, $name) ) {
+
+    }
+    @else {
+        $modules: append($modules, $name) !global;
+        @content;
+    }
+}
+
+
+// We use this to do clear floats
+@mixin clearfix {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}

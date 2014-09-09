@@ -1,0 +1,19 @@
+.panel {
+    display: block;
+    padding: $column-gutter / 2;
+    border: 1px solid color(ui);
+    text-decoration: none;
+    color: color(text);
+    background: #FFF;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+a.panel {
+    @include transition( all 0.3s ease );
+    &:hover {
+        border-color: color(secondary);
+    }
+}

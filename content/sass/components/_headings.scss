@@ -1,0 +1,38 @@
+h1,.alpha{
+    font-size: size(h1);
+    color: color(secondary);
+}
+h2,.beta{
+    font-size: size(h2);
+    color: color(secondary);
+}
+h3,.gamma{
+    font-size: size(h3);
+    color: color(secondary);
+}
+h4,.delta{
+    font-size: size(h4);
+    color: color(secondary);
+}
+h5,.epsilon{
+    font-size: size(h5);
+    color: color(secondary);
+}
+h6,.zeta{
+    font-size: size(h6);
+    color: color(secondary);
+}
+
+
+//
+// Extra classes for bigger sizes
+//
+.giga{
+    font-size: size(giga);
+}
+.mega{
+    font-size: size(mega);
+}
+.kilo{
+    font-size: size(kilo);
+}

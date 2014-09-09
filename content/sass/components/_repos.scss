@@ -1,0 +1,21 @@
+.repo {
+    min-height: 150px;
+
+    &__name {
+        margin: 0 0 5px 0;
+        color: color(primary);
+    }
+
+    &__info {
+        margin: 0 0 1em 0;
+        font-size: size(small);
+        font-weight: bold;
+        color: color(textlight);
+    }
+}
+
+#updated-repos {
+    .time a {
+        color: color(textlight);
+    }
+}
