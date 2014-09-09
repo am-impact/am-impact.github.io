@@ -37,7 +37,7 @@
         var $facepile = $('<div class="repo__team" />');
 
         $link.append('<h2 class="repo__name">' + repo.name + '</h2>');
-        $link.append('<p class="repo__info">' + repo.watchers + ' watchers ' + (repo.language !== null ? '&middot; ' + repo.language : '') + '</p>');
+        $link.append('<p class="repo__info">' + repo.watchers + ' stargazers ' + (repo.language !== null ? '&middot; ' + repo.language : '') + '</p>');
         $link.append('<p class="repo__desc">' + getRepoDesc(repo) + '</p>');
 
         $.getJSON('https://api.github.com/repos/' + orgName + '/' + repo.name + '/collaborators?callback=?&client_id=053d41596f4742e89b66&client_secret=cf30ff2da4e1ef6248594d392288b01d7fd1d0da', function (result) {
