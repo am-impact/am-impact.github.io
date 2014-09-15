@@ -7,7 +7,8 @@
  */
 (function ($, undefined) {
 
-    var orgName = 'am-impact';
+    var orgName = 'am-impact',
+        filterJson = [];
 
     // Return the repo url
     function getRepoUrl(repo) {
@@ -32,7 +33,7 @@
 
     // Create an entry for the repo in the grid of org repos
     function showRepo(repo) {
-        var $item = $('<li />');
+        var $item = $('<li data-index="' + repo.name + '" />');
         var $link = $('<a class="panel repo" href="' + getRepoUrl(repo) + '" />');
         var $facepile = $('<div class="repo__team" />');
 
@@ -55,14 +56,17 @@
     $.getJSON('https://api.github.com/orgs/' + orgName + '/repos?callback=?&client_id=053d41596f4742e89b66&client_secret=cf30ff2da4e1ef6248594d392288b01d7fd1d0da', function (result) {
         var repos = result.data;
 
-        console.log(result);
-
         $(function () {
             $('#num-repos').text(repos.length);
 
             // Convert pushed_at to Date.
             $.each(repos, function (i, repo) {
                 repo.pushed_at = new Date(repo.pushed_at);
+
+                filterJson.push( {
+                    name: "" + repo.name + "",
+                    description: "" + getRepoDesc(repo) + ""
+                } );
 
                 var weekHalfLife  = 1.146 * Math.pow(10, -9);
 
@@ -96,6 +100,25 @@
 
             $.each(repos.slice(0, 3), function (i, repo) {
                 showRepoOverview(repo);
+            });
+
+            // Filter
+            var fuzzyOptions = {
+                    pre: ''
+                    , post: ''
+                    , extract: function(el) { return el.name; }
+                },
+                $repositems = $('#repos > li');
+
+            $('.searchField').focus().on('keyup', function() {
+                var results = fuzzy.filter($(this).val(), filterJson, fuzzyOptions);
+                var matches = results.map(function(el) { return el.string; });
+
+                $repositems.hide();
+
+                $.each(matches, function(i, el) {
+                    $repositems.filter('[data-index="' + el + '"]').show();
+                });
             });
         });
     });

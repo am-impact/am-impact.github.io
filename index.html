@@ -34,7 +34,10 @@
         <main class="page-main">
             <div class="row">
                 <div class="columns">
-                    <ul class="medium-block-grid-3" id="repos"></ul>
+                    <div class="search">
+                        <input type="text" class="searchField" placeholder="Filter...">
+                    </div>
+                    <ul id="repos"></ul>
                 </div>
             </div>
 
@@ -44,5 +47,6 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script src="scripts/repos.js"></script>
+        <script src="scripts/fuzzy-min.js"></script>
     </body>
 </html>
